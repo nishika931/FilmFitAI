@@ -13,9 +13,9 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post("/chat", {
-        query: query,
-      });
+      await axios.post("https://filmfitai.onrender.com/chat", {
+  query: query,
+});
 
       setResponse(res.data.response);
       setQuery("");

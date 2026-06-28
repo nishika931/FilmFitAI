@@ -8,24 +8,24 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const sendQuery = async () => {
-    if (!query.trim()) return;
+  if (!query.trim()) return;
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      await axios.post("https://filmfitai.onrender.com/chat", {
-  query: query,
-});
+  try {
+    const res = await axios.post("https://filmfitai.onrender.com/chat", {
+      query: query,
+    });
 
-      setResponse(res.data.response);
-      setQuery("");
-    } catch (error) {
-      console.log(error);
-      setResponse("Something went wrong.");
-    }
+    setResponse(res.data.response);
+    setQuery("");
+  } catch (error) {
+    console.log(error);
+    setResponse("Something went wrong.");
+  }
 
-    setLoading(false);
-  };
+  setLoading(false);
+};
 
   return (
     <div className="app">
